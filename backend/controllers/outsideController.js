@@ -14,14 +14,14 @@ exports.getTransfers = async (req, res) => {
             }
         });
 
-       const jogadores = response.data.response;
-
         let todasTransferencias = [];
-        for (const jogador of jogadores) {
-            for (const transferencia of jogador.transfers) {
+        for (const player of response.data.response) {
+            for (const transfers of player.transfers) {
                 todasTransferencias.push({
-                    ...transferencia,
-                    jogador: jogador.player.name
+                    ...transfers,
+                    player: player.player.name,
+                    id: player.player.id,
+                    img_player: `https://media.api-sports.io/football/players/${player.player.id}.png`
                 });
             }
         }

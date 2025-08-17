@@ -66,7 +66,8 @@ const TransferSearch = () => {
                 <ul className="space-y-2">
                     {transfers.map((t, index) => (
                         <li key={index} className="border p-2 rounded shadow">
-                            <strong>{t.jogador}</strong><br />
+                            <strong>{t.player}</strong><br />
+                            <img src= {t.img_player} alt="" />
                             De: {t.teams?.out?.name || '---'}<br />
                             Para: {t.teams?.in?.name || '---'}<br />
                             Data: {t.date || 'Sem data'}
