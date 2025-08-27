@@ -2,10 +2,7 @@ const axios = require("axios");
 
 exports.getTransfers = async (req, res) => {
 
-    const { year, month, day } = req.query; // colocar name depois
-
-    console.log("🟢 Parâmetros recebidos:", { year, month, day });
-
+    const { year, month, day } = req.query; 
     try {
         const response = await axios.get("https://v3.football.api-sports.io/transfers?team=126", {
             headers: {
@@ -19,19 +16,18 @@ exports.getTransfers = async (req, res) => {
             for (const transfers of player.transfers) {
                 todasTransferencias.push({
                     ...transfers,
-                    player: player.player.name,
                     id: player.player.id,
+                    player: player.player.name,
                     img_player: `https://media.api-sports.io/football/players/${player.player.id}.png`
                 });
             }
         }
 
-        console.log(`📦 Total de transferências antes dos filtros: ${todasTransferencias.length}`);
 
         // Filtro por ano
         if (year && year.trim() !== "") {
             todasTransferencias = todasTransferencias.filter(t => t.date && t.date.startsWith(year));
-            console.log(`📅 Após filtro por ANO (${year}): ${todasTransferencias.length} transferências`);
+            
         }
 
         // Filtro por mês
@@ -41,7 +37,7 @@ exports.getTransfers = async (req, res) => {
                 const [, m] = t.date.split("-");
                 return m === month.padStart(2, '0');
             });
-            console.log(`📆 Após filtro por MÊS (${month}): ${todasTransferencias.length} transferências`);
+            
         }
 
         // Filtro por dia
@@ -51,12 +47,13 @@ exports.getTransfers = async (req, res) => {
                 const [, , d] = t.date.split("-");
                 return d === day.padStart(2, '0');
             });
-            console.log(`📍 Após filtro por DIA (${day}): ${todasTransferencias.length} transferências`);
+            
         }
 
-        console.log("✅ Transferências filtradas (primeiros 3 itens):", todasTransferencias.slice(0, 3));
+      
 
         res.json(todasTransferencias);
+        console.log(todasTransferencias)
 
     } catch (error) {
         console.error("❌ Erro ao buscar transferências:", error.message);
