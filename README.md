@@ -1,5 +1,10 @@
 ## transfers_saoPaulo
 
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat)
+![API-Football](https://img.shields.io/badge/API-Football-FF5733?style=flat&logoColor=white)
+
 Aplicação full stack desenvolvida em **Node.js (backend)** e **React (frontend)** que consome a [API-Football](https://www.api-football.com/) no endpoint `transfers`, utilizando o parâmetro `id=126` (São Paulo FC).  
 O sistema permite visualizar todas as transferências relacionadas ao clube e realizar **buscas refinadas**, trazendo praticidade e organização para os dados.
 
