@@ -66,6 +66,20 @@ O sistema permite visualizar todas as transferências relacionadas ao clube e re
 
 Ainda vou colocar a preview
 
+---
+
+## ⚙️ Variáveis de ambiente
+Crie um arquivo .env na pasta backend com as seguintes variáveis:
+
+```bash
+API_FOOTBALL_KEY=seu_token_aqui
+PORT=3001
+```
+- **API_FOOTBALL_KEY: sua chave da API-Football.**
+- **PORT: porta em que o backend será executado.**
+
+---
+  
 ## 🚀 Como executar o projeto
 
 ### 1️⃣ Clonar o repositório
@@ -90,3 +104,6 @@ cd frontend
 npm install
 npm start
 ```
+
+## Melhorias futuras
+implementar variaveis de ambiente no repositorio
